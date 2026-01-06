@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace ClassicalDesignPatterns
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         /// 应用程序的主入口点。

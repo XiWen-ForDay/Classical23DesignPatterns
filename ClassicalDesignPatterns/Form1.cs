@@ -32,6 +32,7 @@ using P20_StateLibrary;
 using P21_StrategyLibrary;
 using P22_TemplateMethodLibrary;
 using P23_VisitorLibrary;
+using P1_FactoryMethodLibrary.FinalProduction;
 
 
 namespace ClassicalDesignPatterns
@@ -47,7 +48,16 @@ namespace ClassicalDesignPatterns
         //1、工厂方法模式
         private void btn_FactoryMethodPattern_Click(object sender, EventArgs e)
         {
+            //使用工厂方法创建不同类型的电脑过程
+            //1、工厂创建方法的入参决定了创建哪种类型的电脑
+            //2、工厂创建方法内部分流封装了各个类型电脑的创建细节
+            //3、工厂创建方法中的目标电脑是包含了各个部件的综合配方(可能和创建者模式中的指挥者有点类似)
+            Computer gamePC = ComputerFactory.Create(ComputerType.Game);
+            Computer officePC = ComputerFactory.Create(ComputerType.Office);
 
+            //展示创建结果
+            gamePC.ShowConfig();
+            officePC.ShowConfig();
         }
         //2、抽象工厂模式
         private void btn_AbstractFactoryPattern_Click(object sender, EventArgs e)
