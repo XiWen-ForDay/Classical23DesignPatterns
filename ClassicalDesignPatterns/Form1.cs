@@ -33,6 +33,8 @@ using P21_StrategyLibrary;
 using P22_TemplateMethodLibrary;
 using P23_VisitorLibrary;
 using P1_FactoryMethodLibrary.FinalProduction;
+using P2_AbstractFactoryLibrary.ProductionFactoryInterface;
+using P2_AbstractFactoryLibrary.SpecificProductionFactory;
 
 
 namespace ClassicalDesignPatterns
@@ -52,8 +54,8 @@ namespace ClassicalDesignPatterns
             //1、工厂创建方法的入参决定了创建哪种类型的电脑
             //2、工厂创建方法内部分流封装了各个类型电脑的创建细节
             //3、工厂创建方法中的目标电脑是包含了各个部件的综合配方(可能和创建者模式中的指挥者有点类似)
-            Computer gamePC = ComputerFactory.Create(ComputerType.Game);
-            Computer officePC = ComputerFactory.Create(ComputerType.Office);
+            P1_FactoryMethodLibrary.FinalProduction.Computer gamePC = ComputerFactory.Create(ComputerType.Game);
+            P1_FactoryMethodLibrary.FinalProduction.Computer officePC = ComputerFactory.Create(ComputerType.Office);
 
             //展示创建结果
             gamePC.ShowConfig();
@@ -62,7 +64,19 @@ namespace ClassicalDesignPatterns
         //2、抽象工厂模式
         private void btn_AbstractFactoryPattern_Click(object sender, EventArgs e)
         {
+            //使用抽象工厂创建不同类型的电脑过程
+            //1、具体工厂类的实例决定了创建哪种类型的电脑
+            IComputerFactory gameFactory = new GameComputerFactory();
+            IComputerFactory officeFactory = new OfficeComputerFactory();
+            //2、电脑组装器使用具体工厂类实例来创建各个部件并组装成整机，简单工厂中的分支被抽象工厂的多态性取代
+            //3、而ComputerAssembler.Build方法和简单工厂中的Create方法其实是类似的，都是起到一个组装配方的作用（主要是组装时机），
+            //简单工厂中的Create方法是直接给最终产品部件属性赋值，而ComputerAssembler.Build是调用接口方法给最终产品部件属性赋值
+            P2_AbstractFactoryLibrary.FinalProduction.Computer gamePC = ComputerAssembler.Build(gameFactory);
+            P2_AbstractFactoryLibrary.FinalProduction.Computer officePC = ComputerAssembler.Build(officeFactory);
 
+            //展示创建结果
+            gamePC.ShowConfig();
+            officePC.ShowConfig();
         }
         //3、建造者模式
         private void btn_BuilderPattern_Click(object sender, EventArgs e)
