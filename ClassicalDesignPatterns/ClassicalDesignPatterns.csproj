@@ -79,5 +79,99 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P10_FacadeLibrary\P10_FacadeLibrary.csproj">
+      <Project>{2bfb54f6-8192-49d4-958f-e8032d79ee34}</Project>
+      <Name>P10_FacadeLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P11_FlyweightLibrary\P11_FlyweightLibrary.csproj">
+      <Project>{e7df7494-ed54-4607-b513-dfecd604d94b}</Project>
+      <Name>P11_FlyweightLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P12_ProxyLibrary\P12_ProxyLibrary.csproj">
+      <Project>{026425b0-6a0d-4c87-a350-d0b0dfa9bf20}</Project>
+      <Name>P12_ProxyLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P13_ChainOfResponsibilityLibrary\P13_ChainOfResponsibilityLibrary.csproj">
+      <Project>{d8649608-2254-4a9a-8c49-0021fbf88102}</Project>
+      <Name>P13_ChainOfResponsibilityLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P14_CommandLibrary\P14_CommandLibrary.csproj">
+      <Project>{afcbb1fc-5a66-4b96-9bf5-692c0111cc82}</Project>
+      <Name>P14_CommandLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P15_InterpreterLibrary\P15_InterpreterLibrary.csproj">
+      <Project>{d182e53c-08f5-490b-a530-54bfc27b4d28}</Project>
+      <Name>P15_InterpreterLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P16_IteratorLibrary\P16_IteratorLibrary.csproj">
+      <Project>{4dbffe15-9591-4c1a-bcab-a7caa7297300}</Project>
+      <Name>P16_IteratorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P17_MediatorLibrary\P17_MediatorLibrary.csproj">
+      <Project>{828d6f70-b28b-4c78-97d0-63feb3e2e7f3}</Project>
+      <Name>P17_MediatorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P18_MementoLibrary\P18_MementoLibrary.csproj">
+      <Project>{f7710a31-4b91-4805-b624-88c6f577daab}</Project>
+      <Name>P18_MementoLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P19_ObserverLibrary\P19_ObserverLibrary.csproj">
+      <Project>{f3364972-a518-4dd5-851d-51ac1a7cddb0}</Project>
+      <Name>P19_ObserverLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P1_FactoryMethodLibrary\P1_FactoryMethodLibrary.csproj">
+      <Project>{8bd2ab7b-6a43-4f4c-838b-1b8797d56494}</Project>
+      <Name>P1_FactoryMethodLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P20_StateLibrary\P20_StateLibrary.csproj">
+      <Project>{2cfc4acb-bedf-46da-9da1-28da3127a1c9}</Project>
+      <Name>P20_StateLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P21_StrategyLibrary\P21_StrategyLibrary.csproj">
+      <Project>{a7ddd0ac-06d4-4c2f-b4a8-d66c64ceb86b}</Project>
+      <Name>P21_StrategyLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P22_TemplateMethodLibrary\P22_TemplateMethodLibrary.csproj">
+      <Project>{5d5f9af0-310d-45cf-b89f-500acf410e68}</Project>
+      <Name>P22_TemplateMethodLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P23_VisitorLibrary\P23_VisitorLibrary.csproj">
+      <Project>{d908222a-c4ff-4e9b-825b-e0bd2be833e1}</Project>
+      <Name>P23_VisitorLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P2_AbstractFactoryLibrary\P2_AbstractFactoryLibrary.csproj">
+      <Project>{83de67e5-f5d1-4d9b-9a41-d7e55104c792}</Project>
+      <Name>P2_AbstractFactoryLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P3_BuilderLibrary\P3_BuilderLibrary.csproj">
+      <Project>{8956fb83-b833-4591-8118-b73307e4f955}</Project>
+      <Name>P3_BuilderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P4_PrototypeLibrary\P4_PrototypeLibrary.csproj">
+      <Project>{a5689c6d-0478-4d2f-a0a7-82cdfb1e0cf9}</Project>
+      <Name>P4_PrototypeLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P5_SingletonLibrary\P5_SingletonLibrary.csproj">
+      <Project>{2b57a16b-b086-42c0-b092-440cda100328}</Project>
+      <Name>P5_SingletonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P6_AdapterLibrary\P6_AdapterLibrary.csproj">
+      <Project>{cfbc5a5f-5d8a-40fa-9786-8aa4d242161f}</Project>
+      <Name>P6_AdapterLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P7_BridgeLibrary\P7_BridgeLibrary.csproj">
+      <Project>{dcccc37e-e6c0-43e8-b3dc-24b68453385d}</Project>
+      <Name>P7_BridgeLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P8_CompositeLibrary\P8_CompositeLibrary.csproj">
+      <Project>{df5e11b3-f674-4d6f-9bc2-86f70f065b7f}</Project>
+      <Name>P8_CompositeLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P9_DecoratorLibrary\P9_DecoratorLibrary.csproj">
+      <Project>{a6a98244-8018-4b57-b610-f58fbbfeb3bd}</Project>
+      <Name>P9_DecoratorLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
