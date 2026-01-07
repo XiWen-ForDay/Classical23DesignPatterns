@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P2_AbstractFactoryLibrary.SpecificType.Gpu
+namespace P2_AbstractFactoryLibrary.SpecificModuleType.Cpu
 {
-    public class NvidiaGpu : ProductionModuleBase.Gpu
+    public class IntelCpu : ProductionModuleBase.Cpu
     {
     }
 }

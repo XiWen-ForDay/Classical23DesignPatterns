@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="ComputerAssembler.cs" />
     <Compile Include="FinalProduction\Computer.cs" />
     <Compile Include="ProductionFactoryInterface\IComputerFactory.cs" />
@@ -52,14 +51,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecificProductionFactory\GameComputerFactory.cs" />
     <Compile Include="SpecificProductionFactory\OfficeComputerFactory.cs" />
-    <Compile Include="SpecificType\Cpu\AmdCpu.cs" />
-    <Compile Include="SpecificType\Cpu\IntelCpu.cs" />
-    <Compile Include="SpecificType\Gpu\AmdGpu.cs" />
-    <Compile Include="SpecificType\Gpu\NvidiaGpu.cs" />
-    <Compile Include="SpecificType\Mainboard\AsusMainboard.cs" />
-    <Compile Include="SpecificType\Mainboard\MsiMainboard.cs" />
-    <Compile Include="SpecificType\Memory\CorsairMemory.cs" />
-    <Compile Include="SpecificType\Memory\KingstonMemory.cs" />
+    <Compile Include="SpecificModuleType\Cpu\AmdCpu.cs" />
+    <Compile Include="SpecificModuleType\Cpu\IntelCpu.cs" />
+    <Compile Include="SpecificModuleType\Gpu\AmdGpu.cs" />
+    <Compile Include="SpecificModuleType\Gpu\NvidiaGpu.cs" />
+    <Compile Include="SpecificModuleType\Mainboard\AsusMainboard.cs" />
+    <Compile Include="SpecificModuleType\Mainboard\MsiMainboard.cs" />
+    <Compile Include="SpecificModuleType\Memory\CorsairMemory.cs" />
+    <Compile Include="SpecificModuleType\Memory\KingstonMemory.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

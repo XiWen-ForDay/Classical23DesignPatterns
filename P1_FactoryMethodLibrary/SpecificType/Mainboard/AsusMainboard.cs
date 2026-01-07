@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P1_FactoryMethodLibrary.SpecificType.Mainboard
+namespace P1_FactoryMethodLibrary.SpecificModuleType.Mainboard
 {
     public class AsusMainboard : ProductionModuleBase.Mainboard
     {

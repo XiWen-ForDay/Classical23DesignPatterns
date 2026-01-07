@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P1_FactoryMethodLibrary.SpecificType.Gpu
+namespace P1_FactoryMethodLibrary.SpecificModuleType.Gpu
 {
     public class NvidiaGpu : ProductionModuleBase.Gpu
     {

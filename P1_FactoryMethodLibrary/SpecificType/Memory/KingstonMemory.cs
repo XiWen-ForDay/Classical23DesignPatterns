@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P1_FactoryMethodLibrary.SpecificType.Memory
+namespace P1_FactoryMethodLibrary.SpecificModuleType.Memory
 {
     public class KingstonMemory : ProductionModuleBase.Memory
     {

@@ -1,9 +1,9 @@
 ﻿using P2_AbstractFactoryLibrary.ProductionFactoryInterface;
 using P2_AbstractFactoryLibrary.ProductionModuleBase;
-using P2_AbstractFactoryLibrary.SpecificType.Cpu;
-using P2_AbstractFactoryLibrary.SpecificType.Gpu;
-using P2_AbstractFactoryLibrary.SpecificType.Mainboard;
-using P2_AbstractFactoryLibrary.SpecificType.Memory;
+using P2_AbstractFactoryLibrary.SpecificModuleType.Cpu;
+using P2_AbstractFactoryLibrary.SpecificModuleType.Gpu;
+using P2_AbstractFactoryLibrary.SpecificModuleType.Mainboard;
+using P2_AbstractFactoryLibrary.SpecificModuleType.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;

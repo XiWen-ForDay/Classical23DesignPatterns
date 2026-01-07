@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P2_AbstractFactoryLibrary.SpecificType.Cpu
+namespace P2_AbstractFactoryLibrary.SpecificModuleType.Mainboard
 {
-    public class IntelCpu : ProductionModuleBase.Cpu
+    public class MsiMainboard : ProductionModuleBase.Mainboard
     {
     }
 }

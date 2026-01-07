@@ -57,6 +57,8 @@
     <Compile Include="SpecificType\Memory\CorsairMemory.cs" />
     <Compile Include="SpecificType\Memory\KingstonMemory.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="README.md" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,8 @@
 ﻿using P1_FactoryMethodLibrary.FinalProduction;
-using P1_FactoryMethodLibrary.SpecificType.Cpu;
-using P1_FactoryMethodLibrary.SpecificType.Gpu;
-using P1_FactoryMethodLibrary.SpecificType.Mainboard;
-using P1_FactoryMethodLibrary.SpecificType.Memory;
+using P1_FactoryMethodLibrary.SpecificModuleType.Cpu;
+using P1_FactoryMethodLibrary.SpecificModuleType.Gpu;
+using P1_FactoryMethodLibrary.SpecificModuleType.Mainboard;
+using P1_FactoryMethodLibrary.SpecificModuleType.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;

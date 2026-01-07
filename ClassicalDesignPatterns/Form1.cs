@@ -35,6 +35,8 @@ using P23_VisitorLibrary;
 using P1_FactoryMethodLibrary.FinalProduction;
 using P2_AbstractFactoryLibrary.ProductionFactoryInterface;
 using P2_AbstractFactoryLibrary.SpecificProductionFactory;
+using P8_CompositeLibrary.ProductionModuleBase;
+using P8_CompositeLibrary.SpecificModuleType;
 
 
 namespace ClassicalDesignPatterns
@@ -106,6 +108,44 @@ namespace ClassicalDesignPatterns
         //8、组合模式
         private void btn_CompositePattern_Click(object sender, EventArgs e)
         {
+            // 1. 创建单个设备（PLC/传感器/机械臂）
+            IndustrialDevice plc1 = new SingleDevice("主控制PLC", "PLC-001");
+            IndustrialDevice sensor1 = new SingleDevice("温度传感器", "SENSOR-001");
+            IndustrialDevice sensor2 = new SingleDevice("压力传感器", "SENSOR-002");
+            IndustrialDevice robot1 = new SingleDevice("装配机械臂", "ROBOT-001");
+
+            // 2. 创建工位设备组（包含PLC+传感器+机械臂）
+            DeviceGroup workStation1 = new DeviceGroup("一号装配工位", "STATION-001");
+            workStation1.AddDevice(plc1);
+            workStation1.AddDevice(sensor1);
+            workStation1.AddDevice(sensor2);
+            workStation1.AddDevice(robot1);
+
+            // 3. 创建生产线设备组（包含多个工位）
+            DeviceGroup productLine = new DeviceGroup("汽车零部件生产线", "LINE-001");
+            productLine.AddDevice(workStation1);
+
+            // 4. 再添加一个二号工位到生产线
+            DeviceGroup workStation2 = new DeviceGroup("二号检测工位", "STATION-002");
+            workStation2.AddDevice(new SingleDevice("质检PLC", "PLC-002"));
+            workStation2.AddDevice(new SingleDevice("视觉传感器", "SENSOR-003"));
+            productLine.AddDevice(workStation2);
+
+            Console.WriteLine("\n========================================");
+
+            // 5. 统一调用：批量启动整条生产线（递归操作所有子设备）
+            productLine.StartDevice();
+
+            // 6. 统一调用：获取整条生产线的状态
+            Console.WriteLine("===== 生产线整体状态 =====");
+            Console.WriteLine(productLine.GetRunStatus());
+
+            // 7. 统一调用：批量停止一号工位
+            workStation1.StopDevice();
+
+            // 8. 再次查看生产线状态
+            Console.WriteLine("\n===== 一号工位停止后，生产线状态 =====");
+            Console.WriteLine(productLine.GetRunStatus());
 
         }
         //9、装饰器模式
