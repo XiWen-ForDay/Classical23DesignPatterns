@@ -148,6 +148,10 @@
       <Project>{8956fb83-b833-4591-8118-b73307e4f955}</Project>
       <Name>P3_BuilderLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\P4-1_PrototypeLibrary\P4-1_PrototypeLibrary.csproj">
+      <Project>{fd8098a5-1bae-4f18-be2a-e8304c00d65d}</Project>
+      <Name>P4-1_PrototypeLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\P4_PrototypeLibrary\P4_PrototypeLibrary.csproj">
       <Project>{a5689c6d-0478-4d2f-a0a7-82cdfb1e0cf9}</Project>
       <Name>P4_PrototypeLibrary</Name>

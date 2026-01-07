@@ -41,6 +41,10 @@ using P19_ObserverLibrary.Observer;
 using P19_ObserverLibrary.SpecificObservee;
 using P19_ObserverLibrary.SpecificObserver;
 using P14_CommandLibrary.SpecificCommand;
+using P4_PrototypeLibrary.ProductionModule;
+using P4_1_PrototypeLibrary.SpecificPrototype.EmpPrototype;
+using P4_1_PrototypeLibrary.PrototypeInterface;
+using P4_1_PrototypeLibrary;
 
 
 namespace ClassicalDesignPatterns
@@ -89,10 +93,132 @@ namespace ClassicalDesignPatterns
         {
 
         }
-        //4、原型模式
+        //4、原型模式(使用ICloneable接口实现和BinaryFormatter序列化深拷贝,有风险)
         private void btn_PrototypePattern_Click(object sender, EventArgs e)
         {
+            // 1. 创建原型对象：游戏电脑
+            P4_PrototypeLibrary.FinalProduction.Computer gamingPC = new P4_PrototypeLibrary.FinalProduction.Computer
+            {
+                Cpu = new CPU { Model = "Intel i9-13900K" },
+                Memory = new Memory { Spec = "32GB DDR5 6400MHz" },
+                HardDisk = new HardDisk { Capacity = "2TB NVMe SSD" },
+                GraphicsCard = new GraphicsCard { Type = "NVIDIA RTX 4090" }
+            };
 
+            Console.WriteLine("===== 原型：游戏电脑 =====");
+            gamingPC.ShowInfo();
+
+            // 2. 克隆游戏电脑，得到新对象
+            P4_PrototypeLibrary.FinalProduction.Computer officePC = (P4_PrototypeLibrary.FinalProduction.Computer)gamingPC.Clone();
+
+            // 3. 修改克隆对象的部件，适配办公需求
+            officePC.Cpu.Model = "Intel i5-12400";
+            officePC.Memory.Spec = "16GB DDR4 3200MHz";
+            officePC.GraphicsCard.Type = "Intel UHD 730 核显";
+
+            Console.WriteLine("\n===== 克隆修改后：办公电脑 =====");
+            officePC.ShowInfo();
+
+            // 验证深拷贝：修改办公电脑不影响原型
+            Console.WriteLine("\n===== 验证原型未被修改 =====");
+            gamingPC.ShowInfo();
+
+        }
+        //4-1、原型模式变体1(使用泛型确保类型安全和递归克隆-比上面更安全)
+        private void btn_PrototypePattern1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("=== 原型模式示例调用 ===");
+
+            // ===========================================
+            // 示例1：基本克隆调用
+            // ===========================================
+            Console.WriteLine("\n1. 基本克隆示例：");
+
+            // 创建原始员工
+            var originalEmployee = new Employee
+            {
+                Name = "张三",
+                Age = 30,
+                Department = new Department
+                {
+                    Name = "技术部",
+                    Manager = "李经理"
+                }
+            };
+
+            originalEmployee.Skills.AddRange(new[]
+            {
+                new Skill { Name = "C#", Level = 5 },
+                new Skill { Name = "ASP.NET", Level = 4 }
+            });
+
+            Console.WriteLine("原始员工信息：");
+            originalEmployee.DisplayInfo();
+
+            // 克隆员工
+            var clonedEmployee = originalEmployee.Clone();
+            clonedEmployee.Name = "张三克隆版";
+            clonedEmployee.Age = 31;
+            clonedEmployee.Skills[0].Level = 3; // 修改技能等级
+
+            Console.WriteLine("克隆并修改后的员工信息：");
+            clonedEmployee.DisplayInfo();
+
+            Console.WriteLine("原始员工信息（应保持不变）：");
+            originalEmployee.DisplayInfo();
+
+            // ===========================================
+            // 示例2：使用原型注册器(暂时未能调通，后续有时间完善)
+            // ===========================================
+            Console.WriteLine("\n2. 原型注册器示例：");
+
+            var registry = new PrototypeRegistry();
+
+            // 创建并注册原型
+            var defaultEmployee = new Employee
+            {
+                Name = "默认员工",
+                Age = 25,
+                Department = new Department
+                {
+                    Name = "人力资源部",
+                    Manager = "王经理"
+                }
+            };
+            defaultEmployee.Skills.Add(new Skill { Name = "沟通", Level = 4 });
+
+            // 注册时需要进行类型转换
+            registry.Register("DefaultEmployee", defaultEmployee as IPrototype<object>);
+
+            // 注册另一个原型
+            var managerEmployee = new Employee
+            {
+                Name = "默认经理",
+                Age = 35,
+                Department = new Department
+                {
+                    Name = "管理部门",
+                    Manager = "刘总"
+                }
+            };
+            managerEmployee.Skills.AddRange(new[]
+            {
+                new Skill { Name = "管理", Level = 5 },
+                new Skill { Name = "领导力", Level = 4 }
+            });
+
+            registry.Register("ManagerEmployee", managerEmployee as IPrototype<object>);
+
+            // 从注册器中获取克隆
+            Console.WriteLine("从注册器获取'DefaultEmployee'克隆：");
+            var clonedFromRegistry1 = registry.GetClone<Employee>("DefaultEmployee");
+            clonedFromRegistry1.Name = "新员工1号";
+            clonedFromRegistry1.DisplayInfo();
+
+            Console.WriteLine("从注册器获取'ManagerEmployee'克隆：");
+            var clonedFromRegistry2 = registry.GetClone<Employee>("ManagerEmployee");
+            clonedFromRegistry2.Name = "新经理1号";
+            clonedFromRegistry2.DisplayInfo();
         }
         //5、单例模式
         private void btn_SingletonPattern_Click(object sender, EventArgs e)
@@ -278,5 +404,7 @@ namespace ClassicalDesignPatterns
         {
 
         }
+
+        
     }
 }

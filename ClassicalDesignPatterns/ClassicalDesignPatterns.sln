@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P22_TemplateMethodLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P23_VisitorLibrary", "..\P23_VisitorLibrary\P23_VisitorLibrary.csproj", "{D908222A-C4FF-4E9B-825B-E0BD2BE833E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P4-1_PrototypeLibrary", "..\P4-1_PrototypeLibrary\P4-1_PrototypeLibrary.csproj", "{FD8098A5-1BAE-4F18-BE2A-E8304C00D65D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{D908222A-C4FF-4E9B-825B-E0BD2BE833E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D908222A-C4FF-4E9B-825B-E0BD2BE833E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D908222A-C4FF-4E9B-825B-E0BD2BE833E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8098A5-1BAE-4F18-BE2A-E8304C00D65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8098A5-1BAE-4F18-BE2A-E8304C00D65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8098A5-1BAE-4F18-BE2A-E8304C00D65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8098A5-1BAE-4F18-BE2A-E8304C00D65D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
