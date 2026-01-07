@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Observee\IObservable.cs" />
     <Compile Include="Observer\IObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

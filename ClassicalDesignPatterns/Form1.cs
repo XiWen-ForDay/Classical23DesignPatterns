@@ -40,6 +40,7 @@ using P8_CompositeLibrary.SpecificModuleType;
 using P19_ObserverLibrary.Observer;
 using P19_ObserverLibrary.SpecificObservee;
 using P19_ObserverLibrary.SpecificObserver;
+using P14_CommandLibrary.SpecificCommand;
 
 
 namespace ClassicalDesignPatterns
@@ -179,6 +180,33 @@ namespace ClassicalDesignPatterns
         //14、命令模式
         private void btn_CommandPattern_Click(object sender, EventArgs e)
         {
+            //***注意IndustrialDevice类在多个类库中都有定义，要看清楚对应模式的事件下是否正确使用了对那个类库的IndustrialDevice类
+            // 初始化设备和调用者
+            P14_CommandLibrary.CommandReceiver.IndustrialDevice plcDevice = new P14_CommandLibrary.CommandReceiver.IndustrialDevice("车间PLC设备");
+            CommandInvoker buttonPanel = new CommandInvoker();
+
+            Console.WriteLine("===== 初始状态 =====");
+            plcDevice.ShowStatus();
+
+            // 执行启动命令
+            Console.WriteLine("\n===== 执行启动命令 =====");
+            buttonPanel.SetCommand(new StartDeviceCommand(plcDevice));
+            plcDevice.ShowStatus();
+
+            // 执行调整速度命令
+            Console.WriteLine("\n===== 执行调整速度命令 =====");
+            buttonPanel.SetCommand(new SetSpeedCommand(plcDevice, 500));
+            plcDevice.ShowStatus();
+
+            // 撤销上一次命令
+            Console.WriteLine("\n===== 撤销上一次操作 =====");
+            buttonPanel.UndoLastCommand();
+            plcDevice.ShowStatus();
+
+            // 执行停止命令
+            Console.WriteLine("\n===== 执行停止命令 =====");
+            buttonPanel.SetCommand(new StopDeviceCommand(plcDevice));
+            plcDevice.ShowStatus();
 
         }
         //15、解释器模式
