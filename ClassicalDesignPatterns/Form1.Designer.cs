@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_PrototypePattern1 = new System.Windows.Forms.Button();
             this.btn_SingletonPattern = new System.Windows.Forms.Button();
             this.btn_PrototypePattern = new System.Windows.Forms.Button();
             this.btn_BuilderPattern = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btn_ChainOfResponsibilityPattern = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_PrototypePattern1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,9 +77,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "创建型模式";
             // 
+            // btn_PrototypePattern1
+            // 
+            this.btn_PrototypePattern1.Location = new System.Drawing.Point(22, 528);
+            this.btn_PrototypePattern1.Name = "btn_PrototypePattern1";
+            this.btn_PrototypePattern1.Size = new System.Drawing.Size(305, 58);
+            this.btn_PrototypePattern1.TabIndex = 5;
+            this.btn_PrototypePattern1.Text = "4-1、原型模式-PrototypePattern";
+            this.btn_PrototypePattern1.UseVisualStyleBackColor = true;
+            this.btn_PrototypePattern1.Click += new System.EventHandler(this.btn_PrototypePattern1_Click);
+            // 
             // btn_SingletonPattern
             // 
-            this.btn_SingletonPattern.Location = new System.Drawing.Point(22, 656);
+            this.btn_SingletonPattern.Location = new System.Drawing.Point(22, 653);
             this.btn_SingletonPattern.Name = "btn_SingletonPattern";
             this.btn_SingletonPattern.Size = new System.Drawing.Size(305, 58);
             this.btn_SingletonPattern.TabIndex = 4;
@@ -89,7 +99,7 @@
             // 
             // btn_PrototypePattern
             // 
-            this.btn_PrototypePattern.Location = new System.Drawing.Point(22, 457);
+            this.btn_PrototypePattern.Location = new System.Drawing.Point(22, 403);
             this.btn_PrototypePattern.Name = "btn_PrototypePattern";
             this.btn_PrototypePattern.Size = new System.Drawing.Size(305, 58);
             this.btn_PrototypePattern.TabIndex = 3;
@@ -99,7 +109,7 @@
             // 
             // btn_BuilderPattern
             // 
-            this.btn_BuilderPattern.Location = new System.Drawing.Point(22, 342);
+            this.btn_BuilderPattern.Location = new System.Drawing.Point(22, 278);
             this.btn_BuilderPattern.Name = "btn_BuilderPattern";
             this.btn_BuilderPattern.Size = new System.Drawing.Size(305, 58);
             this.btn_BuilderPattern.TabIndex = 2;
@@ -109,7 +119,7 @@
             // 
             // btn_AbstractFactoryPattern
             // 
-            this.btn_AbstractFactoryPattern.Location = new System.Drawing.Point(22, 185);
+            this.btn_AbstractFactoryPattern.Location = new System.Drawing.Point(22, 153);
             this.btn_AbstractFactoryPattern.Name = "btn_AbstractFactoryPattern";
             this.btn_AbstractFactoryPattern.Size = new System.Drawing.Size(305, 58);
             this.btn_AbstractFactoryPattern.TabIndex = 1;
@@ -359,16 +369,6 @@
             this.label1.Size = new System.Drawing.Size(116, 18);
             this.label1.TabIndex = 14;
             this.label1.Text = "调试信息窗口";
-            // 
-            // btn_PrototypePattern1
-            // 
-            this.btn_PrototypePattern1.Location = new System.Drawing.Point(22, 553);
-            this.btn_PrototypePattern1.Name = "btn_PrototypePattern1";
-            this.btn_PrototypePattern1.Size = new System.Drawing.Size(305, 58);
-            this.btn_PrototypePattern1.TabIndex = 5;
-            this.btn_PrototypePattern1.Text = "4-1、原型模式-PrototypePattern";
-            this.btn_PrototypePattern1.UseVisualStyleBackColor = true;
-            this.btn_PrototypePattern1.Click += new System.EventHandler(this.btn_PrototypePattern1_Click);
             // 
             // Form1
             // 

@@ -168,7 +168,7 @@ namespace ClassicalDesignPatterns
             originalEmployee.DisplayInfo();
 
             // ===========================================
-            // 示例2：使用原型注册器(暂时未能调通，后续有时间完善)
+            // 示例2：使用原型注册器
             // ===========================================
             Console.WriteLine("\n2. 原型注册器示例：");
 
