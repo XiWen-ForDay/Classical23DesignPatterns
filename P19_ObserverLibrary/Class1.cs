@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace P19_ObserverLibrary
 {
-    public class Class1
+    internal class Class1
     {
     }
 }

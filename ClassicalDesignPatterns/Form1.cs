@@ -37,6 +37,9 @@ using P2_AbstractFactoryLibrary.ProductionFactoryInterface;
 using P2_AbstractFactoryLibrary.SpecificProductionFactory;
 using P8_CompositeLibrary.ProductionModuleBase;
 using P8_CompositeLibrary.SpecificModuleType;
+using P19_ObserverLibrary.Observer;
+using P19_ObserverLibrary.SpecificObservee;
+using P19_ObserverLibrary.SpecificObserver;
 
 
 namespace ClassicalDesignPatterns
@@ -201,7 +204,31 @@ namespace ClassicalDesignPatterns
         //19、观察者模式
         private void btn_ObserverPattern_Click(object sender, EventArgs e)
         {
+            // 创建被观察者：温度传感器
+            TemperatureSensor sensor = new TemperatureSensor();
 
+            // 创建观察者并订阅
+            IObserver display = new TemperatureDisplay();
+            IObserver alarm = new TemperatureAlarm();
+            IObserver recorder = new TemperatureRecorder();
+
+            sensor.RegisterObserver(display);
+            sensor.RegisterObserver(alarm);
+            sensor.RegisterObserver(recorder);
+
+            // 模拟传感器多次采集数据
+            Console.WriteLine("===== 传感器开始工作 =====");
+            for (int i = 0; i < 3; i++)
+            {
+                sensor.CollectTemperature();
+                System.Threading.Thread.Sleep(1000); // 模拟间隔1秒
+                Console.WriteLine("------------------------");
+            }
+
+            // 取消某个观察者订阅
+            sensor.RemoveObserver(alarm);
+            Console.WriteLine("===== 取消报警模块订阅 =====");
+            sensor.CollectTemperature();
         }
         //20、状态模式
         private void btn_StatePattern_Click(object sender, EventArgs e)
