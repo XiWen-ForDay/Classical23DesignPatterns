@@ -290,7 +290,25 @@ namespace ClassicalDesignPatterns
         //9、装饰器模式
         private void btn_DecoratorPattern_Click(object sender, EventArgs e)
         {
+            // 1. 基础串口通信（无任何附加功能）
+            ISerialComm comm = new BaseSerialComm();
+            Console.WriteLine($"=== {comm.GetCommDescription()} ===");
+            comm.SendData(new byte[] { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01 });
+            comm.ReceiveData();
+            Console.WriteLine();
 
+            // 2. 给基础串口添加CRC校验功能（动态扩展，无需修改BaseSerialComm）
+            comm = new CrcCheckDecorator(comm);
+            Console.WriteLine($"=== {comm.GetCommDescription()} ===");
+            comm.SendData(new byte[] { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01 });
+            comm.ReceiveData();
+            Console.WriteLine();
+
+            // 3. 再给带CRC的串口添加日志记录功能（继续动态扩展）
+            comm = new LogDecorator(comm);
+            Console.WriteLine($"=== {comm.GetCommDescription()} ===");
+            comm.SendData(new byte[] { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01 });
+            comm.ReceiveData();
         }
         //10、外观模式
         private void btn_FacadePattern_Click(object sender, EventArgs e)
