@@ -46,6 +46,9 @@ using P4_1_PrototypeLibrary.SpecificPrototype.EmpPrototype;
 using P4_1_PrototypeLibrary.PrototypeInterface;
 using P4_1_PrototypeLibrary;
 using P13_ChainOfResponsibilityLibrary.SpecificHandler;
+using P16_IteratorLibrary.Aggregation;
+using P16_IteratorLibrary.BaseDevice;
+using P16_IteratorLibrary.BaseInterface;
 
 
 namespace ClassicalDesignPatterns
@@ -357,7 +360,41 @@ namespace ClassicalDesignPatterns
         //16、迭代器模式
         private void btn_IteratorPattern_Click(object sender, EventArgs e)
         {
+            // 1. 初始化PLC设备（数组存储）
+            Device[] plcs = new Device[]
+            {
+            new Device("PLC-001", "PLC", "运行中"),
+            new Device("PLC-002", "PLC", "待机"),
+            new Device("PLC-003", "PLC", "故障")
+            };
+            IDeviceCollection plcCollection = new PlcCollection(plcs);
 
+            // 2. 初始化传感器设备（链表存储）
+            LinkedList<Device> sensors = new LinkedList<Device>();
+            sensors.AddLast(new Device("Temp-01", "Sensor", "正常"));
+            sensors.AddLast(new Device("Humid-01", "Sensor", "正常"));
+            sensors.AddLast(new Device("Press-01", "Sensor", "异常"));
+            IDeviceCollection sensorCollection = new SensorCollection(sensors);
+
+            // 3. 统一遍历PLC集合
+            Console.WriteLine("=== PLC设备列表 ===");
+            TraverseDevices(plcCollection);
+
+            // 4. 统一遍历传感器集合（无需关心内部存储方式）
+            Console.WriteLine("\n=== 传感器列表 ===");
+            TraverseDevices(sensorCollection);
+
+
+            // 通用遍历方法（对客户端隐藏集合内部结构）
+            void TraverseDevices(IDeviceCollection deviceCollection)
+            {
+                IDeviceIterator iterator = deviceCollection.CreateIterator();
+                while (iterator.HasNext())
+                {
+                    Device device = iterator.Next();
+                    Console.WriteLine($"名称：{device.Name}，类型：{device.Type}，状态：{device.Status}");
+                }
+            }
         }
         //17、中介者模式
         private void btn_MediatorPattern_Click(object sender, EventArgs e)
