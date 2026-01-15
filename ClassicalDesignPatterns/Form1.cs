@@ -371,7 +371,26 @@ namespace ClassicalDesignPatterns
         //12、代理模式
         private void btn_ProxyPattern_Click(object sender, EventArgs e)
         {
+            // 创建真实PLC对象
+            IPLCControl realPLC = new RealPLC();
 
+            // 1. 工程师角色：拥有读写权限
+            Console.WriteLine("===== 工程师操作 =====");
+            IPLCControl engineerProxy = new PLCProxy(realPLC, "工程师");
+            engineerProxy.WriteRegister(10, 200);
+            Console.WriteLine($"读取数据：{engineerProxy.ReadRegister(10)}");
+
+            // 2. 操作员角色：只有读取权限
+            Console.WriteLine("\n===== 操作员操作 =====");
+            IPLCControl operatorProxy = new PLCProxy(realPLC, "操作员");
+            operatorProxy.WriteRegister(10, 300);
+            Console.WriteLine($"读取数据：{operatorProxy.ReadRegister(10)}");
+
+            // 3. 访客角色：无任何权限
+            Console.WriteLine("\n===== 访客操作 =====");
+            IPLCControl guestProxy = new PLCProxy(realPLC, "访客");
+            guestProxy.WriteRegister(10, 400);
+            Console.WriteLine($"读取数据：{guestProxy.ReadRegister(10)}");
         }
         //13、责任链模式
         private void btn_ChainOfResponsibilityPattern_Click(object sender, EventArgs e)
