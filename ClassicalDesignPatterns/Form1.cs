@@ -232,7 +232,17 @@ namespace ClassicalDesignPatterns
         //5、单例模式
         private void btn_SingletonPattern_Click(object sender, EventArgs e)
         {
+            // 模块1 访问串口
+            var portManager1 = SerialPortManager.Instance;
+            portManager1.OpenPort();
+            portManager1.SendCommand(new byte[] { 0x01, 0x03, 0x00, 0x00, 0x00, 0x01 });
 
+            // 模块2 访问串口（和模块1是同一个实例）
+            var portManager2 = SerialPortManager.Instance;
+            Console.WriteLine($"两个实例是否相同：{ReferenceEquals(portManager1, portManager2)}"); // 输出 True
+
+            // 关闭串口
+            portManager2.ClosePort();
         }
         //6、适配器模式
         private void btn_AdapterPattern_Click(object sender, EventArgs e)
