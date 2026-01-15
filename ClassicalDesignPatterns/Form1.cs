@@ -510,7 +510,38 @@ namespace ClassicalDesignPatterns
         //18、备忘录模式
         private void btn_MementoPattern_Click(object sender, EventArgs e)
         {
+            // 1. 创建配方对象（发起人）和配方管理器（管理者）
+            RecipeOriginator recipe = new RecipeOriginator();
+            RecipeCaretaker caretaker = new RecipeCaretaker();
 
+            // 2. 设置配方1并保存
+            recipe.Temp = 180;
+            recipe.Pressure = 2.5;
+            recipe.Speed = 1500;
+            caretaker.AddMemento("配方A", recipe.SaveToMemento());
+
+            // 3. 修改配方为配方2并保存
+            recipe.Temp = 200;
+            recipe.Pressure = 3.0;
+            recipe.Speed = 1800;
+            caretaker.AddMemento("配方B", recipe.SaveToMemento());
+
+            // 4. 误操作修改配方参数
+            Console.WriteLine("\n=== 误操作修改配方参数 ===");
+            recipe.Temp = 100;
+            recipe.Pressure = 1.0;
+            recipe.Speed = 800;
+            recipe.ShowRecipe();
+
+            // 5. 恢复配方A
+            Console.WriteLine("\n=== 恢复配方A ===");
+            recipe.RestoreFromMemento(caretaker.GetMemento("配方A"));
+            recipe.ShowRecipe();
+
+            // 6. 切换到配方B
+            Console.WriteLine("\n=== 切换到配方B ===");
+            recipe.RestoreFromMemento(caretaker.GetMemento("配方B"));
+            recipe.ShowRecipe();
         }
         //19、观察者模式
         private void btn_ObserverPattern_Click(object sender, EventArgs e)
