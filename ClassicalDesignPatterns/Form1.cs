@@ -495,7 +495,25 @@ namespace ClassicalDesignPatterns
         //20、状态模式
         private void btn_StatePattern_Click(object sender, EventArgs e)
         {
+            // 创建电机上下文（相当于上位机连接的电机设备）
+            MotorContext motor = new MotorContext();
 
+            Console.WriteLine("\n===== 操作1：启动电机 =====");
+            motor.StartMotor();
+            Console.WriteLine($"当前状态：{motor.GetCurrentState()}");
+
+            Console.WriteLine("\n===== 操作2：再次启动电机 =====");
+            motor.StartMotor();
+
+            Console.WriteLine("\n===== 操作3：触发电机故障 =====");
+            motor.TriggerFault();
+            Console.WriteLine($"当前状态：{motor.GetCurrentState()}");
+
+            Console.WriteLine("\n===== 操作4：故障状态下启动电机 =====");
+            motor.StartMotor();
+
+            Console.WriteLine("\n===== 操作5：故障状态下停止电机 =====");
+            motor.StopMotor();
         }
         //21、策略模式
         private void btn_StrategyPattern_Click(object sender, EventArgs e)
