@@ -52,6 +52,8 @@ using P16_IteratorLibrary.BaseInterface;
 using P17_MediatorLibrary.AbstractMediator;
 using P17_MediatorLibrary.SpecificDevice;
 using P22_TemplateMethodLibrary.SpecificSonTemplate;
+using P23_VisitorLibrary.SpecificDevices;
+using P23_VisitorLibrary.SpecificVisitor;
 
 
 namespace ClassicalDesignPatterns
@@ -478,9 +480,23 @@ namespace ClassicalDesignPatterns
         //23、访问者模式
         private void btn_VisitorPattern_Click(object sender, EventArgs e)
         {
+            // 1. 初始化设备集合
+            var deviceCollection = new DeviceCollection();
+            deviceCollection.AddDevice(new PlcDevice("PLC-001", "V2.1"));
+            deviceCollection.AddDevice(new SensorDevice("TEMP-001", "温度"));
+            deviceCollection.AddDevice(new SensorDevice("PRESS-001", "压力"));
+            deviceCollection.AddDevice(new AlarmDevice("ALARM-001", true));
+            deviceCollection.AddDevice(new AlarmDevice("ALARM-002", false));
 
+            // 2. 执行设备自检（使用自检访问者）
+            Console.WriteLine("============= 设备自检流程 =============");
+            var selfCheckVisitor = new SelfCheckVisitor();
+            deviceCollection.AcceptVisitor(selfCheckVisitor);
+
+            // 3. 执行数据备份（使用备份访问者）
+            Console.WriteLine("============= 数据备份流程 =============");
+            var dataBackupVisitor = new DataBackupVisitor(@"D:\IndustrialBackup");
+            deviceCollection.AcceptVisitor(dataBackupVisitor);
         }
-
-        
     }
 }
