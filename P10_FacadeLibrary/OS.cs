@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,12 @@ namespace P10_FacadeLibrary
     {
         public void Boot()
         {
-            Console.WriteLine("操作系统 启动中，加载驱动与服务");
+            ConsoleBox.WriteLine("操作系统 启动中，加载驱动与服务");
         }
 
         public void Login()
         {
-            Console.WriteLine("操作系统 启动完成，请登录");
+            ConsoleBox.WriteLine("操作系统 启动完成，请登录");
         }
     }
 

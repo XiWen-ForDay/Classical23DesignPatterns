@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace P15_InterpreterLibrary
         public Context(string input)
         {
             Input = input;
-            Console.WriteLine($"[原始指令] {input}");
+            ConsoleBox.WriteLine($"[原始指令] {input}");
         }
     }
 }

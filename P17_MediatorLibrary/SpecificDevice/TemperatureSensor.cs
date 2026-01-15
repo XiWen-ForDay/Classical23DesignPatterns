@@ -1,5 +1,6 @@
 ﻿using P17_MediatorLibrary.AbstractDevice;
 using P17_MediatorLibrary.AbstractMediator;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,10 @@ namespace P17_MediatorLibrary.SpecificDevice
         // 传感器一般只接收控制指令（比如校准）
         public override void Receive(string message)
         {
-            Console.WriteLine($"{Name} 接收消息：{message}");
+            ConsoleBox.WriteLine($"{Name} 接收消息：{message}");
             if (message.Contains("校准"))
             {
-                Console.WriteLine($"{Name}：开始校准温度传感器...");
+                ConsoleBox.WriteLine($"{Name}：开始校准温度传感器...");
             }
         }
     }

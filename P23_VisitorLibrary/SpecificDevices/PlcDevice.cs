@@ -1,5 +1,6 @@
 ﻿using P23_VisitorLibrary.DeviceElementInterface;
 using P23_VisitorLibrary.VisitorInterface;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,6 @@ namespace P23_VisitorLibrary.SpecificDevices
         }
 
         // PLC自身的基础方法（无需修改）
-        public void ReadData() => Console.WriteLine($"{PlcId} 读取生产数据");
+        public void ReadData() => ConsoleBox.WriteLine($"{PlcId} 读取生产数据");
     }
 }

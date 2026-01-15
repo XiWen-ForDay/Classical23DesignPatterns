@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace P21_StrategyLibrary
             // 自适应逻辑：误差越大，输出系数越高
             double adaptFactor = Math.Abs(error) > 8 ? 1.2 : 0.8;
             double output = error * 3.0 * adaptFactor;
-            Console.WriteLine($"[自适应控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
+            ConsoleBox.WriteLine($"[自适应控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
             return output;
         }
     }

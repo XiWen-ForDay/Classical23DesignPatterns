@@ -1,4 +1,5 @@
 ﻿using P4_PrototypeLibrary.ProductionModule;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,10 +35,10 @@ namespace P4_PrototypeLibrary.FinalProduction
         // 显示电脑配置
         public void ShowInfo()
         {
-            Console.WriteLine(Cpu);
-            Console.WriteLine(Memory);
-            Console.WriteLine(HardDisk);
-            Console.WriteLine(GraphicsCard);
+            ConsoleBox.WriteLine(Cpu.ToString());
+            ConsoleBox.WriteLine(Memory.ToString());
+            ConsoleBox.WriteLine(HardDisk.ToString());
+            ConsoleBox.WriteLine(GraphicsCard.ToString());
         }
     }
 

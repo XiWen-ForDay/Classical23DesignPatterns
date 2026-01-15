@@ -52,5 +52,11 @@
   <ItemGroup>
     <None Include="README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShowRichBoxToolkit\ShowRichBoxToolkit.csproj">
+      <Project>{44488e59-bb21-41ce-819e-7377d9a86c49}</Project>
+      <Name>ShowRichBoxToolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

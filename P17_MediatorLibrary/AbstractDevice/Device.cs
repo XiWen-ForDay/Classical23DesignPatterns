@@ -1,4 +1,5 @@
 ﻿using P17_MediatorLibrary.AbstractMediator;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace P17_MediatorLibrary.AbstractDevice
         // 发送消息（通过中介者转发）
         public void Send(string message)
         {
-            Console.WriteLine($"{Name} 发送消息：{message}");
+            ConsoleBox.WriteLine($"{Name} 发送消息：{message}");
             _mediator.SendMessage(message, this);
         }
 

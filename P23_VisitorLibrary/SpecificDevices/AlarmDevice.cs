@@ -1,5 +1,6 @@
 ﻿using P23_VisitorLibrary.DeviceElementInterface;
 using P23_VisitorLibrary.VisitorInterface;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,6 @@ namespace P23_VisitorLibrary.SpecificDevices
         }
 
         // 报警器自身的基础方法（无需修改）
-        public void TriggerAlarm() => Console.WriteLine($"{AlarmId} 触发声光警报");
+        public void TriggerAlarm() => ConsoleBox.WriteLine($"{AlarmId} 触发声光警报");
     }
 }

@@ -1,4 +1,5 @@
 ﻿using P19_ObserverLibrary.Observer;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace P19_ObserverLibrary.SpecificObserver
         {
             if (temperature >= _alarmThreshold)
             {
-                Console.WriteLine($"[报警模块] 警告！温度过高：{temperature}℃，超过阈值{_alarmThreshold}℃");
+                ConsoleBox.WriteLine($"[报警模块] 警告！温度过高：{temperature}℃，超过阈值{_alarmThreshold}℃");
             }
         }
     }

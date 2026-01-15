@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,14 +12,14 @@ namespace P7_BridgeLibrary
     {
         public bool SendCommand(string command)
         {
-            Console.WriteLine($"[串口通信] 发送指令：{command}");
+            ConsoleBox.WriteLine($"[串口通信] 发送指令：{command}");
             return true;
         }
 
         public string ReceiveData()
         {
             string data = "串口返回：设备状态正常";
-            Console.WriteLine(data);
+            ConsoleBox.WriteLine(data);
             return data;
         }
     }

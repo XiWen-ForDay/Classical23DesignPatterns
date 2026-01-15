@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace P7_BridgeLibrary
 
         public override void ExecuteOperation(string command)
         {
-            Console.WriteLine("\n=== Profinet设备操作 ===");
+            ConsoleBox.WriteLine("\n=== Profinet设备操作 ===");
             _communication.SendCommand($"Profinet指令：{command}");
             _communication.ReceiveData();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Linq;
@@ -48,15 +49,15 @@ namespace P5_SingletonLibrary
                 if (!_serialPort.IsOpen)
                 {
                     _serialPort.Open();
-                    Console.WriteLine($"串口 {_serialPort.PortName} 打开成功");
+                    ConsoleBox.WriteLine($"串口 {_serialPort.PortName} 打开成功");
                     return true;
                 }
-                Console.WriteLine("串口已处于打开状态");
+                ConsoleBox.WriteLine("串口已处于打开状态");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"串口打开失败：{ex.Message}");
+                ConsoleBox.WriteLine($"串口打开失败：{ex.Message}");
                 return false;
             }
         }
@@ -69,7 +70,7 @@ namespace P5_SingletonLibrary
             if (_serialPort.IsOpen)
             {
                 _serialPort.Close();
-                Console.WriteLine($"串口 {_serialPort.PortName} 关闭成功");
+                ConsoleBox.WriteLine($"串口 {_serialPort.PortName} 关闭成功");
             }
         }
 
@@ -83,12 +84,12 @@ namespace P5_SingletonLibrary
             try
             {
                 _serialPort.Write(command, 0, command.Length);
-                Console.WriteLine($"发送指令：{BitConverter.ToString(command)}");
+                ConsoleBox.WriteLine($"发送指令：{BitConverter.ToString(command)}");
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"发送指令失败：{ex.Message}");
+                ConsoleBox.WriteLine($"发送指令失败：{ex.Message}");
                 return false;
             }
         }

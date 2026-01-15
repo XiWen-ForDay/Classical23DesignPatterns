@@ -1,4 +1,5 @@
 ﻿using P13_ChainOfResponsibilityLibrary.Alarm;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace P13_ChainOfResponsibilityLibrary.SpecificHandler
         {
             if (alarmLevel == "紧急")
             {
-                Console.WriteLine($"主管处理报警：{message}");
+                ConsoleBox.WriteLine($"主管处理报警：{message}");
             }
             else
             {
-                Console.WriteLine($"无人处理报警：{message}");
+                ConsoleBox.WriteLine($"无人处理报警：{message}");
             }
         }
     }

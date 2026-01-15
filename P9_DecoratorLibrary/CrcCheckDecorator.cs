@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace P9_DecoratorLibrary
             Array.Copy(data, dataWithCrc, data.Length);
             Array.Copy(crc, 0, dataWithCrc, data.Length, crc.Length);
             // 3. 调用底层串口发送带CRC的数据
-            Console.WriteLine($"[CRC装饰器] 给原始数据添加CRC：{BitConverter.ToString(crc)}");
+            ConsoleBox.WriteLine($"[CRC装饰器] 给原始数据添加CRC：{BitConverter.ToString(crc)}");
             return _serialComm.SendData(dataWithCrc);
         }
 
@@ -40,7 +41,7 @@ namespace P9_DecoratorLibrary
             // 3. 验证CRC是否匹配
             byte[] calculatedCrc = CalculateCrc16(rawData);
             bool crcValid = BitConverter.ToString(receivedCrc) == BitConverter.ToString(calculatedCrc);
-            Console.WriteLine($"[CRC装饰器] 验证CRC：{(crcValid ? "通过" : "失败")}");
+            ConsoleBox.WriteLine($"[CRC装饰器] 验证CRC：{(crcValid ? "通过" : "失败")}");
             // 4. 返回剥离CRC后的原始数据（业务层无需关心CRC）
             return crcValid ? rawData : null;
         }

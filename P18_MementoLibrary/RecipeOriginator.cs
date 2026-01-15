@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace P18_MementoLibrary
         // 保存当前状态到备忘录
         public RecipeMemento SaveToMemento()
         {
-            Console.WriteLine($"[配方保存] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
+            ConsoleBox.WriteLine($"[配方保存] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
             return new RecipeMemento(Temp, Pressure, Speed);
         }
 
@@ -30,13 +31,13 @@ namespace P18_MementoLibrary
             Temp = memento.Temp;
             Pressure = memento.Pressure;
             Speed = memento.Speed;
-            Console.WriteLine($"[配方恢复] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
+            ConsoleBox.WriteLine($"[配方恢复] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
         }
 
         // 显示当前配方参数
         public void ShowRecipe()
         {
-            Console.WriteLine($"[当前配方] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
+            ConsoleBox.WriteLine($"[当前配方] 温度：{Temp}℃ | 压力：{Pressure}MPa | 转速：{Speed}r/min");
         }
     }
 }

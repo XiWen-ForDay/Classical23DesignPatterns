@@ -1,5 +1,6 @@
 ﻿using P17_MediatorLibrary.AbstractDevice;
 using P17_MediatorLibrary.AbstractMediator;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,14 @@ namespace P17_MediatorLibrary.SpecificDevice
 
         public override void Receive(string message)
         {
-            Console.WriteLine($"{Name} 接收消息：{message}");
+            ConsoleBox.WriteLine($"{Name} 接收消息：{message}");
             if (message.Contains("温度过高") || message.Contains("异常"))
             {
-                Console.WriteLine($"{Name}：⚠️ 发出声光警报！");
+                ConsoleBox.WriteLine($"{Name}：⚠️ 发出声光警报！");
             }
             else if (message.Contains("温度正常") || message.Contains("已启动"))
             {
-                Console.WriteLine($"{Name}：警报解除");
+                ConsoleBox.WriteLine($"{Name}：警报解除");
             }
         }
     }

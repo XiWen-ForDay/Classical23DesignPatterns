@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,12 +27,12 @@ namespace P12_ProxyLibrary
             // 增强功能1：权限校验
             if (!CheckReadPermission())
             {
-                Console.WriteLine($"[PLC代理] 权限不足！{_userRole} 无法读取PLC数据");
+                ConsoleBox.WriteLine($"[PLC代理] 权限不足！{_userRole} 无法读取PLC数据");
                 return -1;
             }
 
             // 增强功能2：记录操作日志
-            Console.WriteLine($"[PLC代理] 记录日志：{_userRole} 读取寄存器 {registerAddress}");
+            ConsoleBox.WriteLine($"[PLC代理] 记录日志：{_userRole} 读取寄存器 {registerAddress}");
 
             try
             {
@@ -41,7 +42,7 @@ namespace P12_ProxyLibrary
             catch (Exception ex)
             {
                 // 增强功能3：异常重试（简化版）
-                Console.WriteLine($"[PLC代理] 读取失败，重试一次：{ex.Message}");
+                ConsoleBox.WriteLine($"[PLC代理] 读取失败，重试一次：{ex.Message}");
                 return _realPLC.ReadRegister(registerAddress);
             }
         }
@@ -51,12 +52,12 @@ namespace P12_ProxyLibrary
             // 增强功能1：权限校验（写入权限比读取更严格）
             if (!CheckWritePermission())
             {
-                Console.WriteLine($"[PLC代理] 权限不足！{_userRole} 无法写入PLC数据");
+                ConsoleBox.WriteLine($"[PLC代理] 权限不足！{_userRole} 无法写入PLC数据");
                 return false;
             }
 
             // 增强功能2：记录操作日志
-            Console.WriteLine($"[PLC代理] 记录日志：{_userRole} 向寄存器 {registerAddress} 写入 {value}");
+            ConsoleBox.WriteLine($"[PLC代理] 记录日志：{_userRole} 向寄存器 {registerAddress} 写入 {value}");
 
             try
             {
@@ -64,7 +65,7 @@ namespace P12_ProxyLibrary
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[PLC代理] 写入失败：{ex.Message}");
+                ConsoleBox.WriteLine($"[PLC代理] 写入失败：{ex.Message}");
                 return false;
             }
         }

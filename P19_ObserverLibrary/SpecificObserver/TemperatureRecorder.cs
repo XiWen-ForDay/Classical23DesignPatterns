@@ -1,4 +1,5 @@
 ﻿using P19_ObserverLibrary.Observer;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace P19_ObserverLibrary.SpecificObserver
         {
             // 模拟保存到数据库或日志文件
             string time = DateTime.Now.ToString("HH:mm:ss");
-            Console.WriteLine($"[记录模块] 保存数据 - 时间：{time}，温度：{temperature}℃");
+            ConsoleBox.WriteLine($"[记录模块] 保存数据 - 时间：{time}，温度：{temperature}℃");
         }
     }
 }

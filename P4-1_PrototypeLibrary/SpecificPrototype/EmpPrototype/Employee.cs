@@ -1,4 +1,5 @@
 ﻿using P4_1_PrototypeLibrary.AbstractPrototypeBase;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,14 +35,13 @@ namespace P4_1_PrototypeLibrary.SpecificPrototype.EmpPrototype
         // 添加一个显示信息的方法便于测试
         public void DisplayInfo()
         {
-            Console.WriteLine($"Name: {Name}, Age: {Age}");
-            Console.WriteLine($"Department: {Department?.Name} (Manager: {Department?.Manager})");
-            Console.WriteLine("Skills:");
+            ConsoleBox.WriteLine($"Name: {Name}, Age: {Age}");
+            ConsoleBox.WriteLine($"Department: {Department?.Name} (Manager: {Department?.Manager})");
+            ConsoleBox.WriteLine("Skills:");
             foreach (var skill in Skills)
             {
-                Console.WriteLine($"  - {skill.Name} (Level: {skill.Level})");
+                ConsoleBox.WriteLine($"  - {skill.Name} (Level: {skill.Level})");
             }
-            Console.WriteLine();
         }
     }
 }

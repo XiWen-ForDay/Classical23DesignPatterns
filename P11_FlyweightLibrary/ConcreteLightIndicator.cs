@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,12 +19,12 @@ namespace P11_FlyweightLibrary
         {
             _color = color;
             _state = state;
-            Console.WriteLine($"创建共享指示灯实例：【{_state}】- 颜色{_color}");
+            ConsoleBox.WriteLine($"创建共享指示灯实例：【{_state}】- 颜色{_color}");
         }
 
         public void Display(string deviceId, string position)
         {
-            Console.WriteLine($"设备【{deviceId}】-{position} 指示灯：{_state}({_color})");
+            ConsoleBox.WriteLine($"设备【{deviceId}】-{position} 指示灯：{_state}({_color})");
         }
 
         public string GetInnerState()

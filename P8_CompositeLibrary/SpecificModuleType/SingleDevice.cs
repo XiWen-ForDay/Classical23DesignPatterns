@@ -1,4 +1,5 @@
 ﻿using P8_CompositeLibrary.ProductionModuleBase;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,11 @@ namespace P8_CompositeLibrary.SpecificModuleType
             if (!_isRunning)
             {
                 _isRunning = true;
-                Console.WriteLine($"[{DeviceId}] {DeviceName} 启动成功！");
+                ConsoleBox.WriteLine($"[{DeviceId}] {DeviceName} 启动成功！");
             }
             else
             {
-                Console.WriteLine($"[{DeviceId}] {DeviceName} 已处于运行状态！");
+                ConsoleBox.WriteLine($"[{DeviceId}] {DeviceName} 已处于运行状态！");
             }
         }
 
@@ -38,11 +39,11 @@ namespace P8_CompositeLibrary.SpecificModuleType
             if (_isRunning)
             {
                 _isRunning = false;
-                Console.WriteLine($"[{DeviceId}] {DeviceName} 停止成功！");
+                ConsoleBox.WriteLine($"[{DeviceId}] {DeviceName} 停止成功！");
             }
             else
             {
-                Console.WriteLine($"[{DeviceId}] {DeviceName} 已处于停止状态！");
+                ConsoleBox.WriteLine($"[{DeviceId}] {DeviceName} 已处于停止状态！");
             }
         }
     }

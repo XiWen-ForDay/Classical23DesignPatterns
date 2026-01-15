@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace P10_FacadeLibrary
     {
         public void Load()
         {
-            Console.WriteLine("内存 加载引导程序，初始化存储空间");
+            ConsoleBox.WriteLine("内存 加载引导程序，初始化存储空间");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,14 +28,14 @@ namespace P10_FacadeLibrary
         // 对外提供的简化接口：一键启动电脑
         public void StartComputer()
         {
-            Console.WriteLine("===== 开始启动电脑 =====");
+            ConsoleBox.WriteLine("===== 开始启动电脑 =====");
             _cpu.PowerOn();
             _hardDisk.Read();
             _memory.Load();
             _cpu.Run();
             _os.Boot();
             _os.Login();
-            Console.WriteLine("===== 电脑启动流程结束 =====");
+            ConsoleBox.WriteLine("===== 电脑启动流程结束 =====");
         }
     }
 

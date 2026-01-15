@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,12 @@ namespace P10_FacadeLibrary
     {
         public void PowerOn()
         {
-            Console.WriteLine("CPU 通电，开始自检...");
+            ConsoleBox.WriteLine("CPU 通电，开始自检...");
         }
 
         public void Run()
         {
-            Console.WriteLine("CPU 加载指令集，准备工作");
+            ConsoleBox.WriteLine("CPU 加载指令集，准备工作");
         }
     }
 }

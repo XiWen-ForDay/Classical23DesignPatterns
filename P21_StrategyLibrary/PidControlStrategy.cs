@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace P21_StrategyLibrary
 
             // PID计算公式：输出 = 比例项 + 积分项 + 微分项
             double output = _kp * error + _ki * _errorSum + _kd * errorDiff;
-            Console.WriteLine($"[PID控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
+            ConsoleBox.WriteLine($"[PID控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
             return output;
         }
     }

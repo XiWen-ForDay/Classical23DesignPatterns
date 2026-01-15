@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace P20_StateLibrary
         public MotorContext()
         {
             _currentState = new StopState();
-            Console.WriteLine($"电机初始化完成，当前状态：{_currentState.GetStateName()}");
+            ConsoleBox.WriteLine($"电机初始化完成，当前状态：{_currentState.GetStateName()}");
         }
 
         // 切换状态的核心方法

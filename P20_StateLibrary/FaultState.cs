@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,17 @@ namespace P20_StateLibrary
     {
         public void Start(MotorContext motor)
         {
-            Console.WriteLine("【故障状态】电机故障未复位，无法启动");
+            ConsoleBox.WriteLine("【故障状态】电机故障未复位，无法启动");
         }
 
         public void Stop(MotorContext motor)
         {
-            Console.WriteLine("【故障状态】电机已故障，停止指令无效");
+            ConsoleBox.WriteLine("【故障状态】电机已故障，停止指令无效");
         }
 
         public void Fault(MotorContext motor)
         {
-            Console.WriteLine("【故障状态】电机已故障，无需重复触发");
+            ConsoleBox.WriteLine("【故障状态】电机已故障，无需重复触发");
         }
 
         public string GetStateName() => "故障状态";

@@ -1,4 +1,5 @@
 ﻿using P2_AbstractFactoryLibrary.ProductionModuleBase;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace P2_AbstractFactoryLibrary.FinalProduction
 
         public void ShowConfig()
         {
-            Console.WriteLine($"整机配置：" +
+            ConsoleBox.WriteLine($"整机配置：" +
                               $"{Cpu.GetType().Name} / " +
                               $"{Gpu.GetType().Name} / " +
                               $"{Memory.GetType().Name} / " +

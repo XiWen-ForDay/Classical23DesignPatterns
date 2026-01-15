@@ -1,5 +1,6 @@
 ﻿using P19_ObserverLibrary.Observee;
 using P19_ObserverLibrary.Observer;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace P19_ObserverLibrary.SpecificObservee
             // 这里模拟随机温度变化，实际项目中是读取硬件数据
             Random random = new Random();
             _currentTemperature = (float)Math.Round(random.Next(20, 50) + random.NextDouble(), 1);
-            Console.WriteLine($"[传感器] 当前采集温度：{_currentTemperature}℃");
+            ConsoleBox.WriteLine($"[传感器] 当前采集温度：{_currentTemperature}℃");
 
             // 温度变化时通知所有观察者
             NotifyObservers();

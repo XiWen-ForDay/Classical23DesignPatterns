@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace P21_StrategyLibrary
         public void SetStrategy(ITempControlStrategy newStrategy)
         {
             _currentStrategy = newStrategy;
-            Console.WriteLine("\n=== 切换温度控制策略 ===");
+            ConsoleBox.WriteLine("\n=== 切换温度控制策略 ===");
         }
 
         // 调用当前策略计算输出

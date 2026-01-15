@@ -1,4 +1,5 @@
 ﻿using P14_CommandLibrary.AbstractCommand;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,11 @@ namespace P14_CommandLibrary
             {
                 var lastCmd = _commandHistory.Pop();
                 lastCmd.Undo();
-                Console.WriteLine($"已撤销上一次操作");
+                ConsoleBox.WriteLine($"已撤销上一次操作");
             }
             else
             {
-                Console.WriteLine("暂无可撤销的命令");
+                ConsoleBox.WriteLine("暂无可撤销的命令");
             }
         }
     }

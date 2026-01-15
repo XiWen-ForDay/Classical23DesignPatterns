@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace P21_StrategyLibrary
             {
                 output = 20;// 误差小，低功率输出
             }
-            Console.WriteLine($"[模糊控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
+            ConsoleBox.WriteLine($"[模糊控制] 当前温度{currentTemp}→目标{targetTemp}，输出：{output:F2}");
             return output;
         }
     }

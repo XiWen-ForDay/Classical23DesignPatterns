@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +13,18 @@ namespace P20_StateLibrary
     {
         public void Start(MotorContext motor)
         {
-            Console.WriteLine("【停止→运行】电机启动成功，开始运转");
+            ConsoleBox.WriteLine("【停止→运行】电机启动成功，开始运转");
             motor.SetState(new RunningState()); // 切换到运行状态
         }
 
         public void Stop(MotorContext motor)
         {
-            Console.WriteLine("【停止状态】电机已停止，无需重复操作");
+            ConsoleBox.WriteLine("【停止状态】电机已停止，无需重复操作");
         }
 
         public void Fault(MotorContext motor)
         {
-            Console.WriteLine("【停止→故障】电机异常，进入故障状态");
+            ConsoleBox.WriteLine("【停止→故障】电机异常，进入故障状态");
             motor.SetState(new FaultState()); // 切换到故障状态
         }
 

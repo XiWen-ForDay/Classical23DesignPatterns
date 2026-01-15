@@ -1,4 +1,5 @@
 ﻿using P8_CompositeLibrary.ProductionModuleBase;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,28 +28,28 @@ namespace P8_CompositeLibrary.SpecificModuleType
 
         public override void StartDevice()
         {
-            Console.WriteLine($"===== 批量启动 [{DeviceId}] {DeviceName} 下所有设备 =====");
+            ConsoleBox.WriteLine($"===== 批量启动 [{DeviceId}] {DeviceName} 下所有设备 =====");
             foreach (var device in _subDevices)
             {
                 device.StartDevice();
             }
-            Console.WriteLine("========================================\n");
+            ConsoleBox.WriteLine("========================================\n");
         }
 
         public override void StopDevice()
         {
-            Console.WriteLine($"===== 批量停止 [{DeviceId}] {DeviceName} 下所有设备 =====");
+            ConsoleBox.WriteLine($"===== 批量停止 [{DeviceId}] {DeviceName} 下所有设备 =====");
             foreach (var device in _subDevices)
             {
                 device.StopDevice();
             }
-            Console.WriteLine("========================================\n");
+            ConsoleBox.WriteLine("========================================\n");
         }
 
         public override void AddDevice(IndustrialDevice device)
         {
             _subDevices.Add(device);
-            Console.WriteLine($"[{device.DeviceId}] {device.DeviceName} 已加入 [{DeviceId}] {DeviceName}");
+            ConsoleBox.WriteLine($"[{device.DeviceId}] {device.DeviceName} 已加入 [{DeviceId}] {DeviceName}");
         }
 
         public override void RemoveDevice(IndustrialDevice device)
@@ -56,11 +57,11 @@ namespace P8_CompositeLibrary.SpecificModuleType
             if (_subDevices.Contains(device))
             {
                 _subDevices.Remove(device);
-                Console.WriteLine($"[{device.DeviceId}] {device.DeviceName} 已移出 [{DeviceId}] {DeviceName}");
+                ConsoleBox.WriteLine($"[{device.DeviceId}] {device.DeviceName} 已移出 [{DeviceId}] {DeviceName}");
             }
             else
             {
-                Console.WriteLine($"[{device.DeviceId}] {device.DeviceName} 不在当前设备组中");
+                ConsoleBox.WriteLine($"[{device.DeviceId}] {device.DeviceName} 不在当前设备组中");
             }
         }
     }

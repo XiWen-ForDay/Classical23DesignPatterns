@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace P12_ProxyLibrary
         {
             // 模拟远程PLC的读取延迟
             System.Threading.Thread.Sleep(100);
-            Console.WriteLine($"[真实PLC] 读取地址 {registerAddress} 的数据");
+            ConsoleBox.WriteLine($"[真实PLC] 读取地址 {registerAddress} 的数据");
             return _registers[registerAddress];
         }
 
@@ -24,7 +25,7 @@ namespace P12_ProxyLibrary
         {
             // 模拟远程PLC的写入延迟
             System.Threading.Thread.Sleep(100);
-            Console.WriteLine($"[真实PLC] 向地址 {registerAddress} 写入数据 {value}");
+            ConsoleBox.WriteLine($"[真实PLC] 向地址 {registerAddress} 写入数据 {value}");
             _registers[registerAddress] = value;
             return true;
         }

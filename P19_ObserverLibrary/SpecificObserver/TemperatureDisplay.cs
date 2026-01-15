@@ -1,4 +1,5 @@
 ﻿using P19_ObserverLibrary.Observer;
+using ShowRichBoxToolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace P19_ObserverLibrary.SpecificObserver
     {
         public void Update(float temperature)
         {
-            Console.WriteLine($"[显示面板] 实时温度更新：{temperature}℃");
+            ConsoleBox.WriteLine($"[显示面板] 实时温度更新：{temperature}℃");
         }
     }
 }

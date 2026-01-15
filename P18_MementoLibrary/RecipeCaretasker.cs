@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShowRichBoxToolkit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,12 @@ namespace P18_MementoLibrary
             if (_recipeMementos.ContainsKey(recipeName))
             {
                 _recipeMementos[recipeName] = memento;
-                Console.WriteLine($"配方【{recipeName}】已更新");
+                ConsoleBox.WriteLine($"配方【{recipeName}】已更新");
             }
             else
             {
                 _recipeMementos.Add(recipeName, memento);
-                Console.WriteLine($"配方【{recipeName}】已保存");
+                ConsoleBox.WriteLine($"配方【{recipeName}】已保存");
             }
         }
 
