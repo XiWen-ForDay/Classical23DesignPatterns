@@ -51,6 +51,7 @@ using P16_IteratorLibrary.BaseDevice;
 using P16_IteratorLibrary.BaseInterface;
 using P17_MediatorLibrary.AbstractMediator;
 using P17_MediatorLibrary.SpecificDevice;
+using P22_TemplateMethodLibrary.SpecificSonTemplate;
 
 
 namespace ClassicalDesignPatterns
@@ -466,7 +467,13 @@ namespace ClassicalDesignPatterns
         //22、模板方法模式
         private void btn_TemplateMethodPattern_Click(object sender, EventArgs e)
         {
+            // 温度控制流程
+            var tempControl = new TemperatureController("DB1.DBD0");
+            tempControl.ControlProcess();
 
+            // 压力控制流程
+            var pressureControl = new PressureController("DB2.DBD0");
+            pressureControl.ControlProcess();
         }
         //23、访问者模式
         private void btn_VisitorPattern_Click(object sender, EventArgs e)
