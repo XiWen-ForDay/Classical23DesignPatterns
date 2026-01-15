@@ -108,9 +108,9 @@ namespace ClassicalDesignPatterns
             // 1. 创建原型对象：游戏电脑
             P4_PrototypeLibrary.FinalProduction.Computer gamingPC = new P4_PrototypeLibrary.FinalProduction.Computer
             {
-                Cpu = new CPU { Model = "Intel i9-13900K" },
-                Memory = new Memory { Spec = "32GB DDR5 6400MHz" },
-                HardDisk = new HardDisk { Capacity = "2TB NVMe SSD" },
+                Cpu = new P4_PrototypeLibrary.ProductionModule.CPU { Model = "Intel i9-13900K" },
+                Memory = new P4_PrototypeLibrary.ProductionModule.Memory { Spec = "32GB DDR5 6400MHz" },
+                HardDisk = new P4_PrototypeLibrary.ProductionModule.HardDisk { Capacity = "2TB NVMe SSD" },
                 GraphicsCard = new GraphicsCard { Type = "NVIDIA RTX 4090" }
             };
 
@@ -323,7 +323,9 @@ namespace ClassicalDesignPatterns
         //10、外观模式
         private void btn_FacadePattern_Click(object sender, EventArgs e)
         {
-
+            // 客户端只和外观类交互
+            ComputerFacade computer = new ComputerFacade();
+            computer.StartComputer();
         }
         //11、享元模式
         private void btn_FlyweightPattern_Click(object sender, EventArgs e)
