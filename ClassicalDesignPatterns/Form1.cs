@@ -567,7 +567,22 @@ namespace ClassicalDesignPatterns
         //21、策略模式
         private void btn_StrategyPattern_Click(object sender, EventArgs e)
         {
+            // ===== 4. 客户端测试：模拟工控上位机切换不同控制算法 =====
+            // 创建温度控制上下文
+            TempControlContext controlContext = new TempControlContext();
+            double targetTemp = 50.0;
 
+            // 场景1：使用默认PID策略
+            controlContext.Control(25.0, targetTemp);
+            controlContext.Control(45.0, targetTemp);
+
+            // 场景2：切换为模糊控制策略
+            controlContext.SetStrategy(new FuzzyControlStrategy());
+            controlContext.Control(30.0, targetTemp);
+
+            // 场景3：切换为自适应控制策略
+            controlContext.SetStrategy(new AdaptiveControlStrategy());
+            controlContext.Control(48.0, targetTemp);
         }
         //22、模板方法模式
         private void btn_TemplateMethodPattern_Click(object sender, EventArgs e)
