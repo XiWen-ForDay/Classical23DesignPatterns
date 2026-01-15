@@ -242,16 +242,26 @@ namespace ClassicalDesignPatterns
         //7、桥接模式
         private void btn_BridgePattern_Click(object sender, EventArgs e)
         {
+            // 1. Modbus设备 + 串口通信
+            P7_BridgeLibrary.IndustrialDevice modbusSerial = new ModbusDevice(new SerialCommunication());
+            modbusSerial.ExecuteOperation("读取线圈状态");
 
+            // 2. Modbus设备 + TCP通信
+            P7_BridgeLibrary.IndustrialDevice modbusTcp = new ModbusDevice(new TcpCommunication());
+            modbusTcp.ExecuteOperation("写入寄存器数值");
+
+            // 3. Profinet设备 + TCP通信
+            P7_BridgeLibrary.IndustrialDevice profinetTcp = new ProfinetDevice(new TcpCommunication());
+            profinetTcp.ExecuteOperation("设备参数配置");
         }
         //8、组合模式
         private void btn_CompositePattern_Click(object sender, EventArgs e)
         {
             // 1. 创建单个设备（PLC/传感器/机械臂）
-            IndustrialDevice plc1 = new SingleDevice("主控制PLC", "PLC-001");
-            IndustrialDevice sensor1 = new SingleDevice("温度传感器", "SENSOR-001");
-            IndustrialDevice sensor2 = new SingleDevice("压力传感器", "SENSOR-002");
-            IndustrialDevice robot1 = new SingleDevice("装配机械臂", "ROBOT-001");
+            P8_CompositeLibrary.ProductionModuleBase.IndustrialDevice plc1 = new SingleDevice("主控制PLC", "PLC-001");
+            P8_CompositeLibrary.ProductionModuleBase.IndustrialDevice sensor1 = new SingleDevice("温度传感器", "SENSOR-001");
+            P8_CompositeLibrary.ProductionModuleBase.IndustrialDevice sensor2 = new SingleDevice("压力传感器", "SENSOR-002");
+            P8_CompositeLibrary.ProductionModuleBase.IndustrialDevice robot1 = new SingleDevice("装配机械臂", "ROBOT-001");
 
             // 2. 创建工位设备组（包含PLC+传感器+机械臂）
             DeviceGroup workStation1 = new DeviceGroup("一号装配工位", "STATION-001");
