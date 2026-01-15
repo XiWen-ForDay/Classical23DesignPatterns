@@ -45,6 +45,7 @@ using P4_PrototypeLibrary.ProductionModule;
 using P4_1_PrototypeLibrary.SpecificPrototype.EmpPrototype;
 using P4_1_PrototypeLibrary.PrototypeInterface;
 using P4_1_PrototypeLibrary;
+using P13_ChainOfResponsibilityLibrary.SpecificHandler;
 
 
 namespace ClassicalDesignPatterns
@@ -301,7 +302,20 @@ namespace ClassicalDesignPatterns
         //13、责任链模式
         private void btn_ChainOfResponsibilityPattern_Click(object sender, EventArgs e)
         {
+            // 创建各个处理者
+            var operatorHandler = new OperatorHandler();
+            var foremanHandler = new ForemanHandler();
+            var supervisorHandler = new SupervisorHandler();
 
+            // 构建职责链：操作员 → 班长 → 主管
+            operatorHandler.SetNextHandler(foremanHandler);
+            foremanHandler.SetNextHandler(supervisorHandler);
+
+            // 模拟不同级别的报警
+            operatorHandler.HandleAlarm("普通", "温度略高（35℃）");
+            operatorHandler.HandleAlarm("严重", "温度过高（50℃）");
+            operatorHandler.HandleAlarm("紧急", "设备冒烟！");
+            operatorHandler.HandleAlarm("未知", "传感器异常");
         }
         //14、命令模式
         private void btn_CommandPattern_Click(object sender, EventArgs e)
