@@ -445,7 +445,29 @@ namespace ClassicalDesignPatterns
         //15、解释器模式
         private void btn_InterpreterPattern_Click(object sender, EventArgs e)
         {
+            // 测试指令1：启动电机A，转速1000转，持续5分钟
+            Context ctx1 = new Context("启动电机A，转速1000转，持续5分钟");
+            IExpression cmd1 = new CommandExpression();
+            var result1 = cmd1.Interpret(ctx1);
+            ShowResult(result1);
 
+            Console.WriteLine("----------------------------------");
+
+            // 测试指令2：停止电机B，转速0转，持续0分钟
+            Context ctx2 = new Context("停止电机B，转速0转，持续0分钟");
+            IExpression cmd2 = new CommandExpression();
+            var result2 = cmd2.Interpret(ctx2);
+            ShowResult(result2);
+
+            // 打印解析结果
+            void ShowResult(Dictionary<string, string> result)
+            {
+                Console.WriteLine("[解析结果]");
+                foreach (var kv in result)
+                {
+                    Console.WriteLine($"{kv.Key}：{kv.Value}");
+                }
+            }
         }
         //16、迭代器模式
         private void btn_IteratorPattern_Click(object sender, EventArgs e)
