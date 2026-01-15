@@ -346,7 +346,27 @@ namespace ClassicalDesignPatterns
         //11、享元模式
         private void btn_FlyweightPattern_Click(object sender, EventArgs e)
         {
+            LightIndicatorFactory factory = new LightIndicatorFactory();
+            // 模拟10个设备，每个设备有运行/停止/故障3种指示灯
+            string[] deviceIds = { "PLC01", "PLC02", "PLC03", "PLC04", "PLC05", "PLC06", "PLC07", "PLC08", "PLC09", "PLC10" };
+            string[] positions = { "主电源", "运行状态", "故障报警" };
 
+            foreach (var deviceId in deviceIds)
+            {
+                // 运行指示灯（绿色）- 共享实例
+                ILightIndicator runLight = factory.GetIndicator("绿色", "运行");
+                runLight.Display(deviceId, positions[1]);
+
+                // 停止指示灯（灰色）- 共享实例
+                ILightIndicator stopLight = factory.GetIndicator("灰色", "停止");
+                stopLight.Display(deviceId, positions[0]);
+
+                // 故障指示灯（红色）- 共享实例
+                ILightIndicator faultLight = factory.GetIndicator("红色", "故障");
+                faultLight.Display(deviceId, positions[2]);
+            }
+
+            Console.WriteLine($"\n===== 共创建共享指示灯实例数量：{factory.GetPoolCount()} =====");
         }
         //12、代理模式
         private void btn_ProxyPattern_Click(object sender, EventArgs e)
