@@ -46,7 +46,6 @@
     <Compile Include="BaseDevice\Device.cs" />
     <Compile Include="BaseInterface\IDeviceCollection.cs" />
     <Compile Include="BaseInterface\IDeviceIterator.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecificIterator\PlcIterator.cs" />
     <Compile Include="SpecificIterator\SensorIterator.cs" />

@@ -49,6 +49,8 @@ using P13_ChainOfResponsibilityLibrary.SpecificHandler;
 using P16_IteratorLibrary.Aggregation;
 using P16_IteratorLibrary.BaseDevice;
 using P16_IteratorLibrary.BaseInterface;
+using P17_MediatorLibrary.AbstractMediator;
+using P17_MediatorLibrary.SpecificDevice;
 
 
 namespace ClassicalDesignPatterns
@@ -399,7 +401,23 @@ namespace ClassicalDesignPatterns
         //17、中介者模式
         private void btn_MediatorPattern_Click(object sender, EventArgs e)
         {
+            // 1. 创建中介者（设备协调器）
+            DeviceMediator coordinator = new DeviceCoordinator();
 
+            // 2. 创建设备并注册到中介者（自动注册）
+            var sensor = new P17_MediatorLibrary.SpecificDevice.TemperatureSensor("Temp-Sensor-01", coordinator);
+            var plc = new PlcController("PLC-001", coordinator);
+            var alarm = new Alarm("Alarm-01", coordinator);
+
+            // 3. 模拟传感器检测温度
+            Console.WriteLine("=== 模拟温度检测 ===");
+            sensor.DetectTemperature(45.2f); // 温度正常
+            Console.WriteLine("\n--- 5分钟后 ---");
+            sensor.DetectTemperature(58.7f); // 温度过高
+
+            // 4. 模拟手动校准传感器（通过中介者转发指令）
+            Console.WriteLine("\n=== 手动操作 ===");
+            plc.Send("请校准温度传感器");
         }
         //18、备忘录模式
         private void btn_MementoPattern_Click(object sender, EventArgs e)
@@ -410,7 +428,7 @@ namespace ClassicalDesignPatterns
         private void btn_ObserverPattern_Click(object sender, EventArgs e)
         {
             // 创建被观察者：温度传感器
-            TemperatureSensor sensor = new TemperatureSensor();
+            P19_ObserverLibrary.SpecificObservee.TemperatureSensor sensor = new P19_ObserverLibrary.SpecificObservee.TemperatureSensor();
 
             // 创建观察者并订阅
             IObserver display = new TemperatureDisplay();
