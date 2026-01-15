@@ -237,7 +237,13 @@ namespace ClassicalDesignPatterns
         //6、适配器模式
         private void btn_AdapterPattern_Click(object sender, EventArgs e)
         {
-
+            // 1. 创建旧传感器实例
+            SerialTemperatureSensor oldSensor = new SerialTemperatureSensor();
+            // 2. 创建适配器，包装旧传感器
+            ITemperatureSensor sensor = new TemperatureSensorAdapter(oldSensor);
+            // 3. 上位机直接调用目标接口，无需关心底层格式
+            float temp = sensor.GetTemperature();
+            Console.WriteLine($"上位机读取温度：{temp} °C");
         }
         //7、桥接模式
         private void btn_BridgePattern_Click(object sender, EventArgs e)
