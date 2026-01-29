@@ -76,8 +76,8 @@ namespace ClassicalDesignPatterns
             //1、工厂创建方法的入参决定了创建哪种类型的电脑
             //2、工厂创建方法内部分流封装了各个类型电脑的创建细节
             //3、工厂创建方法中的目标电脑是包含了各个部件的综合配方(可能和创建者模式中的指挥者有点类似)
-            P1_FactoryMethodLibrary.FinalProduction.Computer gamePC = ComputerFactory.Create(ComputerType.Game);
-            P1_FactoryMethodLibrary.FinalProduction.Computer officePC = ComputerFactory.Create(ComputerType.Office);
+            Computer gamePC = ComputerFactory.Create(ComputerType.Game);
+            Computer officePC = ComputerFactory.Create(ComputerType.Office);
 
             //展示创建结果
             gamePC.ShowConfig();
